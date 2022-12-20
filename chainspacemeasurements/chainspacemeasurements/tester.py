@@ -337,15 +337,14 @@ class Tester(object):
         allLatency = []
         allTps = []
         for validators in range(min_validators,max_validators+1):
-            #print "-----------Start test validators "+str(validators)
             for num_dummies in range(1, 2): #num_shards
                 tps_sets = []
                 latency_times_sets = []
                 for i in range(runs):
                     try:
-                        print(")))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))")
-                        print("))))))))))))))))))))        run "+str(i)+"          )))))))))))))))))))))))))))")
-                        print(")))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))")
+                        print("-------------------------------------------------------------------")
+                        print("----------------        run "+str(i)+"          ------------")
+                        print("-------------------------------------------------------------------")
                         print ("----------------Running measurements for {2} dummy objects across {0} shards (run {1}).".format(num_shards, i, num_dummies))
                         print ("config core")
                         self.network.config_core(num_shards, validators)
@@ -360,7 +359,6 @@ class Tester(object):
                         time.sleep(10)
                         print ("--------start simulation")
                         #dumper.simulation_batched(network, inputs_per_tx, outputs_per_tx, num_transactions=None, batch_size=4000, batch_sleep=1, input_object_mode=0, create_dummy_objects=0, num_dummy_objects=0, output_object_mode=0):
-                        #pati = "/home/alexandre/Desktop/test_aws/try3withenvi/byzcuit/chainspacemeasurements/chainspacemeasurements/Transactions/"+str(shardListPath)
                         print("----------------------------------------------------------------------------------------------------------------------  "+str(shardListPath))
                         #dumper.simulation_batched(self.network,num_transactions, 1, 1, shardListPath)
                         #print(len(open(shardListPath).readlines()))
@@ -374,7 +372,7 @@ class Tester(object):
                         tps_set = self.network.get_tpsm_set()
 
                         if (len(tps_set) == 0 or sum(tps_set) == 0):
-                            print("-------- tps empty -------")
+                            print("tps empty")
                             time.sleep(20)
                             nbremptyTps = nbremptyTps +1
                         else :
@@ -384,8 +382,9 @@ class Tester(object):
 
 
                         latency_times = self.network.get_latency()
+
                         if (len(latency_times)==0):
-                            print("-------- latency empty -------")
+                            print("latency empty")
                             time.sleep(20)
                             nbremptyLat = nbremptyLat +1
                         else : 
@@ -408,6 +407,7 @@ class Tester(object):
                             # reset connection
                             for i in range(5):
                                 try:
+                                    #instead of resetting, sleep for 20 seconds before
                                     #self.network.ssh_close()
                                     #self.network.ssh_connect()
                                     self.network.stop_core()
@@ -434,11 +434,11 @@ class Tester(object):
         self.tpsfh.write("  \n")
         self.tpsfh.write(str(allTps)+" \n")
         self.tpsfh.write("  \n")
-        self.tpsfh.write("nbr empty tps: "+str(nbremptyTps)+" \n")
-        self.tpsfh.write("nbr empty latency: "+str(nbremptyLat)+" \n")
+        self.tpsfh.write("number empty tps: "+str(nbremptyTps)+" \n")
+        self.tpsfh.write("number empty latency: "+str(nbremptyLat)+" \n")
 
-        print("nbr of empty Tps "+str(nbremptyTps))
-        print("nbr of empty Latency "+str(nbremptyLat))
+        print("number of empty Tps "+str(nbremptyTps))
+        print("nbumber of empty Latency "+str(nbremptyLat))
 
         #self.latfh.write(json.dumps(latency_times_sets_sets))
         return tps_sets_sets

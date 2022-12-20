@@ -14,7 +14,7 @@ import sys
 numShards=2
 
 # FIXME: Path where to write the output files
-path = "/Users/srene/workspace/byzcuit/chainspacecore/ChainSpaceClientConfig/"
+path = "/home/yash/chainspace/chainspacecore/ChainSpaceClientConfig/"
 
 # FIXME: Used to seed output object generator
 # Choose a large number, greater than the input objects generated
@@ -175,9 +175,10 @@ def genTransactionFile():
 	for line in Lines:
 		transactionID = getNextTransactionID()
 		inline = line.split(":")
-		print(inline[0])
+		#print(inline[0])
 		inshardsfromfile = getInputsFromLine(inline[0])
-		outshardsfromfile = getInputsFromLine(inline[1])
+		outshardsfromfile = getInputsFromLine(inline[0])
+
 
 		numInputs = len(inshardsfromfile)
 		numOutputs = len(outshardsfromfile)
@@ -199,8 +200,8 @@ def genTransactionFile():
 
 			lastShard = inputShard
 
-		# generate output objects
-        	outputs = ""
+			# generate output objects
+			outputs = ""
 
 		transactionxshardCounter[inputShard] = transactionxshardCounter[inputShard] +  1
 
@@ -232,7 +233,7 @@ def genTransactionFile():
 		outputShards.clear()
 
 	for i in range(numShards):
-		print transactionxshardCounter[i]
+		print (transactionxshardCounter[i])
 	# Close file
 	outFile.close()
 

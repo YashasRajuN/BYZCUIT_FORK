@@ -1,10 +1,11 @@
-# ==================
+# generate objects.py 
+#==================
 # This script generates files containg objects, one file per shard with
 # filename format "test_objects<shardID>.txt"
-# These files are used by the corresponding shards to load objects for
-# testing purposes. Files have the format <object>\t<status> where status
+# These filesFiles have the format <object>\t<status> where status
 # is fixed to 0 (meaning ACTIVE)
-
+#are used by the corresponding shards to load objects for
+# testing purposes. 
 # Bano / 01Feb2019
 # =================
 import sys
@@ -15,10 +16,10 @@ import sys
 numObjects=2000
 
 # FIXME: How many shards
-numShards=5
+numShards=2
 
 # FIXME: Path where to write the output files
-path = "/Users/srene/workspace/byzcuit/chainspacecore/ChainSpaceConfig/"
+path = "/home/yash/chainspace/chainspacecore/ChainSpaceConfig/"
 
 def config(newNumObjects, newNumShards, newPath):
 	global numObjects
@@ -27,6 +28,8 @@ def config(newNumObjects, newNumShards, newPath):
 	numObjects = newNumObjects
 	numShards = newNumShards
 	path = newPath
+	print(numShards)
+	time.sleep(200)
 
 def mapObjectsToShard(theObject):
 	# This is how Byzcuit maps objects to shards

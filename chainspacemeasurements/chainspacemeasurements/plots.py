@@ -9,7 +9,7 @@ from chainspacemeasurements.results import parse_shard_results, parse_client_lat
 
 
 def plot_shard_scaling(results, outfile):
-    parsed_results = parse_shard_results(results)
+    parsed_results = int(parse_shard_results(results))
     pyplot.xlabel('Number of shards')
     pyplot.ylabel('Average transactions / second')
     pyplot.grid(True)
@@ -312,6 +312,9 @@ if __name__ == '__main__':
     elif sys.argv[1] == 'clientlatency':
         results = json.loads(open(sys.argv[2]).read())
         plot_client_latency(results, sys.argv[3], int(sys.argv[4]), int(sys.argv[5]))
+
+        #python3 plots.py clientlatency measure 100 500
+
     elif sys.argv[1] == 'clientlatency2':
         results1 = json.loads(open(sys.argv[2]).read())
         results2 = json.loads(open(sys.argv[3]).read())

@@ -1,5 +1,2 @@
-0 /Users/srene/workspace/byzcuit/chainspacecore/ChainSpaceClientConfig/shards/s0
-1 /Users/srene/workspace/byzcuit/chainspacecore/ChainSpaceClientConfig/shards/s1
-2 /Users/srene/workspace/byzcuit/chainspacecore/ChainSpaceClientConfig/shards/s2
-3 /Users/srene/workspace/byzcuit/chainspacecore/ChainSpaceClientConfig/shards/s3
-4 /Users/srene/workspace/byzcuit/chainspacecore/ChainSpaceClientConfig/shards/s4
+0 /home/yash/chainspace/chainspacecore/ChainSpaceClientConfig/shards/s0
+1 /home/yash/chainspace/chainspacecore/ChainSpaceClientConfig/shards/s1

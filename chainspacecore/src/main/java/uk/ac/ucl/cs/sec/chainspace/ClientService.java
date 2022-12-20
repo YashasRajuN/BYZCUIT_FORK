@@ -74,6 +74,7 @@ class ClientService {
         try {
 
             // submit the transaction
+            
             Client.submitTransactionNoWait(request.body());
 
             // create json response

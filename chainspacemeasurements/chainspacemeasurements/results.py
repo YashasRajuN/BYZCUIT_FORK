@@ -5,6 +5,7 @@ def parse_shard_results(results):
     final_result = []
     for shard in results:
         sum_set = []
+
         for tps_set in shard:
             sum_set.append(sum(tps_set))
 
@@ -21,7 +22,6 @@ def parse_shard_results(results):
 
     return final_result
 
-
 def parse_client_latency_results(results):
     final_result = []
     for tps in results:
@@ -29,6 +29,25 @@ def parse_client_latency_results(results):
         for latency_set in tps:
             latencies += latency_set
         latencies = sorted(latencies)
+        final_result.append(latencies)
+
+    return final_result
+
+def parse_client_latency_results12(results):
+    final_result = []
+    for tps in results:
+        latencies = []
+        pri =[]
+        for latency_set in tps:
+            for i in latency_set: 
+                num = i/1000
+                pri.append(num)
+            #latencies +=latency_set/1000
+            #res = latency_set/1000
+            #print(latency_set)
+            latencies.append(pri)
+        latencies = sorted(latencies)
+        #print(latencies)
         final_result.append(latencies)
 
     return final_result

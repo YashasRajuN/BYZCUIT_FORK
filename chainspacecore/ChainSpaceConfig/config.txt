@@ -1,3 +1,3 @@
-shardConfigFile ChainSpaceConfig/shardConfig.txt
+shardConfigFile /chainspace/chainspacecore/ChainSpaceConfig/shardConfig.txt
 thisShard 0
 thisReplica 0

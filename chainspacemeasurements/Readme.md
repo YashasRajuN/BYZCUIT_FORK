@@ -24,19 +24,19 @@ Note that is necessary to generate a keypair pem file to access the EC2 instance
 
 Install chainspace on EC2 instances
 ```shell
-$ python -c "from chainspacemeasurements.instances import ChainspaceNetwork; n = ChainspaceNetwork(0); n.ssh_connect(0); n.ssh_connect(1); n.install_deps(0); n.install_deps(1); n.install_core(0); n.install_core(1);"
+$ python3 -c "from chainspacemeasurements.instances import ChainspaceNetwork; n = ChainspaceNetwork(0); n.ssh_connect(0); n.ssh_connect(1); n.install_deps(0); n.install_deps(1); n.install_core(0); n.install_core(1);"
 ```
 
 Optional:
 
 Start instances
 ```shell
-$ python -c "from chainspacemeasurements.instances import ChainspaceNetwork; n = ChainspaceNetwork(0); n.start(0); n.start(1);"
+$ python3 -c "from chainspacemeasurements.instances import ChainspaceNetwork; n = ChainspaceNetwork(0); n.start(0); n.start(1);"
 ```
 
 Stop instances
 ```shell
-$ python -c "from chainspacemeasurements.instances import ChainspaceNetwork; n = ChainspaceNetwork(0); n.stop(0); n.stop(1);"
+$ python3 -c "from chainspacemeasurements.instances import ChainspaceNetwork; n = ChainspaceNetwork(0); n.stop(0); n.stop(1);"
 ```
 
 ## Running transactions on the testbed
@@ -44,7 +44,7 @@ $ python -c "from chainspacemeasurements.instances import ChainspaceNetwork; n =
 To run transactions on the running tesbed the following command should be used. This command will generate transactions with objects from the shards indicated in the file 
 
 ```shell
-$ python tester.py sharding_measurements arg1 arg2 arg3 arg4 arg5 arg6 arg7 arg8 
+$ python3 tester.py sharding_measurements arg1 arg2 arg3 arg4 arg5 arg6 arg7 arg8 
 ```
 where the arguments should be:
 
@@ -58,3 +58,4 @@ where the arguments should be:
 * arg8: This is the output file where the latencies measured in the clients will be logged.
 
 Note: A minimum number of 3 validators and 8 clients per shard is required
+Example: python3 tester.py 2 3 2 2 /shard_input_file test latency
